@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+  <rect width="40" height="40" rx="8" fill="#DD0031"/>
+  <path d="M20 6L8 11.5V21.5C8 28.2 13.2 34.5 20 36C26.8 34.5 32 28.2 32 21.5V11.5L20 6Z" fill="white" opacity="0.15"/>
+  <path d="M20 9L11 13.8V21.5C11 26.8 15 31.8 20 33.3C25 31.8 29 26.8 29 21.5V13.8L20 9Z" fill="white" opacity="0.1"/>
+  <text x="20" y="26" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">LG</text>
+</svg>
