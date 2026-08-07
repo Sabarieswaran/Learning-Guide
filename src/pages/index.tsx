@@ -144,9 +144,10 @@ const learningPaths = [
 function Hero() {
   return (
     <section className="hero-section">
-      <div className="hero-badge">
-        <span>📘</span> The Frontend Handbook
-      </div>
+      {/* Eyebrow — concise context strip, no emoji pill */}
+      <p className="hero-eyebrow">
+        Angular · Frontend Engineering · Interview Prep
+      </p>
 
       <h1 className="hero-title">
         Your Complete{' '}

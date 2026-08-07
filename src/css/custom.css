@@ -412,20 +412,15 @@ body {
   );
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: rgba(123, 63, 155, 0.1);
-  color: var(--ifm-color-primary);
-  border: 1px solid rgba(123, 63, 155, 0.25);
-  border-radius: 100px;
-  padding: 0.3rem 0.85rem;
-  font-size: 0.8rem;
+/* Hero eyebrow — replaces pill badge */
+.hero-eyebrow {
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1.25rem;
+  opacity: 0.85;
 }
 
 .hero-title {
