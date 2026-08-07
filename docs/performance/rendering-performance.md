@@ -7,6 +7,29 @@ description: Layout thrashing, paint storms, compositor layers, virtual scrollin
 
 # Rendering Performance
 
+## Frame Budget — The 16ms Rule
+
+```mermaid
+gantt
+    title Browser Frame Budget (16ms at 60fps)
+    dateFormat X
+    axisFormat %Lms
+
+    section JavaScript
+    JS execution (budget: 10ms) :0, 10
+
+    section Rendering Pipeline
+    Style recalculation :10, 11
+    Layout / Reflow :11, 12
+    Paint :12, 13
+    Composite :13, 14
+
+    section Idle
+    Idle time (2ms) :14, 16
+```
+
+---
+
 ## The Performance Budget
 
 Target: 60fps = one frame every 16ms.

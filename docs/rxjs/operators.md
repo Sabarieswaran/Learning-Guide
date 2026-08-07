@@ -7,6 +7,31 @@ description: RxJS operators overview — transformation, filtering, combination,
 
 # RxJS Operators
 
+## Which Flattening Operator?
+
+```mermaid
+flowchart TD
+    Q{"New value arrives while still running?"} --> Yes[Yes] --> Q2{"Do you need previous result?"}
+    Q --> No[No] --> CONCAT["concatMap - Queue sequentially"]
+
+    Q2 --> SW["switchMap - Cancel previous"]
+    Q2 --> MM["mergeMap - Run concurrently"]
+    Q2 --> EM["exhaustMap - Ignore new"]
+
+    style SW fill:#DD0031,color:#fff
+    style CONCAT fill:#3178C6,color:#fff
+    style MM fill:#7B3F9B,color:#fff
+    style EM fill:#1572B6,color:#fff
+```
+
+Use cases:
+- `switchMap` — search autocomplete (cancel stale requests)
+- `mergeMap` — load multiple independent items in parallel
+- `concatMap` — save operations that must run in order
+- `exhaustMap` — form submit (ignore double-clicks)
+
+---
+
 ## Transformation
 
 ```typescript

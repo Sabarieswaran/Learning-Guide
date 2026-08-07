@@ -7,6 +7,34 @@ description: LCP, INP, CLS — measurement, causes, and Angular-specific improve
 
 # Core Web Vitals
 
+## The Metrics at a Glance
+
+```mermaid
+graph LR
+    subgraph LCP["LCP - Loading"]
+        L1[Slow TTFB] --> L2[Large unoptimized image]
+        L2 --> L3[No SSR - empty shell]
+    end
+    subgraph INP["INP - Responsiveness"]
+        I1[Long JS tasks] --> I2[Slow event handlers]
+        I2 --> I3[Full-tree change detection]
+    end
+    subgraph CLS["CLS - Stability"]
+        C1[Images without dimensions] --> C2[Dynamic content injection]
+        C2 --> C3[Font flash FOUT]
+    end
+
+    LCP --> Fix1["Fix: SSR, NgOptimizedImage priority, preload"]
+    INP --> Fix2["Fix: Signals, OnPush, Web Workers"]
+    CLS --> Fix3["Fix: width/height attrs, font-display: optional"]
+
+    style LCP fill:#3178C6,color:#fff
+    style INP fill:#DD0031,color:#fff
+    style CLS fill:#7B3F9B,color:#fff
+```
+
+---
+
 ## LCP — Largest Contentful Paint
 
 Measures loading performance. Time until the largest text or image element is rendered.

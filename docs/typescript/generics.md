@@ -7,6 +7,25 @@ description: Generic functions, interfaces, constraints, conditional types, and 
 
 # TypeScript Generics
 
+## How Generics Work
+
+```mermaid
+graph LR
+    A["function first(T)(array: T array)"] --> B["Call: first 1 2 3"]
+    B --> C["TypeScript infers T = number"]
+    C --> D["Return type: number or undefined"]
+
+    A --> E["Call: first a b"]
+    E --> F["TypeScript infers T = string"]
+    F --> G["Return type: string or undefined"]
+
+    style A fill:#3178C6,color:#fff
+    style C fill:#7B3F9B,color:#fff
+    style F fill:#7B3F9B,color:#fff
+```
+
+---
+
 ## Generic Functions
 
 ```typescript
