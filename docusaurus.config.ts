@@ -53,7 +53,7 @@ const config: Config = {
   themeConfig: {
     image: 'img/og-image.png',
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: 'light',
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
@@ -120,6 +120,10 @@ const config: Config = {
             { type: 'docSidebar', sidebarId: 'machineCodingSidebar', label: 'Machine Coding' },
             { type: 'docSidebar', sidebarId: 'companyGuidesSidebar', label: 'Company Guides' },
           ],
+        },
+        {
+          type: 'custom-sepia-toggle',
+          position: 'right',
         },
         {
           href: 'https://github.com/sabarieswaran/Learning-Guide',
