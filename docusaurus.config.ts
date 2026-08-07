@@ -17,6 +17,30 @@ const config: Config = {
 
   onBrokenLinks: 'warn',
 
+  headTags: [
+    // Preconnect for faster font loading
+    {
+      tagName: 'link',
+      attributes: { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com',
+        crossorigin: 'anonymous',
+      },
+    },
+    // Atkinson Hyperlegible (body) + JetBrains Mono (code)
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;600&display=swap',
+      },
+    },
+  ],
+
   markdown: {
     mermaid: true,
   },

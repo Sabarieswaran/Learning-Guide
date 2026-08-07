@@ -1,6 +1,7 @@
 /**
  * Learning Guide – Custom Styles
  * Three reading modes: Light · Dark · Sepia
+ * Fonts: Atkinson Hyperlegible (body) · JetBrains Mono (code)
  * Mobile-first responsive design
  */
 
@@ -29,9 +30,9 @@
   --ifm-hr-border-color: #E0E0E0;
   --ifm-code-background: #EFEFEF;
 
-  /* Typography */
-  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  /* Typography — Atkinson Hyperlegible (body/UI) + JetBrains Mono (code) */
+  --ifm-font-family-base: 'Atkinson Hyperlegible', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code',
     Consolas, 'Courier New', monospace;
   --ifm-code-font-size: 93%;
