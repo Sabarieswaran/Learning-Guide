@@ -5,21 +5,21 @@ const SEPIA_ATTR = 'sepia';
 
 /**
  * Sepia mode toggle button.
- * Adds/removes data-theme="sepia" on <html>.
- * Persists choice to localStorage.
- * Does not conflict with Docusaurus light/dark toggle —
- * sepia is a reading-comfort overlay, not a Docusaurus theme.
+ * Sets/removes data-theme="sepia" on <html>.
+ * Persists to localStorage. Works on mobile and desktop.
  */
 export default function SepiaToggle(): JSX.Element {
   const [isSepia, setIsSepia] = useState(false);
 
   // Restore persisted preference on mount
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === 'true') {
-      document.documentElement.setAttribute('data-theme', SEPIA_ATTR);
-      setIsSepia(true);
-    }
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored === 'true') {
+        document.documentElement.setAttribute('data-theme', SEPIA_ATTR);
+        setIsSepia(true);
+      }
+    } catch {}
   }, []);
 
   const toggle = () => {
@@ -27,18 +27,18 @@ export default function SepiaToggle(): JSX.Element {
     setIsSepia(next);
 
     if (next) {
-      // Save current light/dark theme so we can restore it
+      // Save current theme so we can restore it
       const current = document.documentElement.getAttribute('data-theme');
       if (current && current !== SEPIA_ATTR) {
-        sessionStorage.setItem('lg-pre-sepia-theme', current);
+        try { sessionStorage.setItem('lg-pre-sepia-theme', current); } catch {}
       }
       document.documentElement.setAttribute('data-theme', SEPIA_ATTR);
-      localStorage.setItem(STORAGE_KEY, 'true');
+      try { localStorage.setItem(STORAGE_KEY, 'true'); } catch {}
     } else {
-      // Restore previous light/dark theme
-      const prev = sessionStorage.getItem('lg-pre-sepia-theme') ?? 'light';
+      let prev = 'light';
+      try { prev = sessionStorage.getItem('lg-pre-sepia-theme') ?? 'light'; } catch {}
       document.documentElement.setAttribute('data-theme', prev);
-      localStorage.setItem(STORAGE_KEY, 'false');
+      try { localStorage.setItem(STORAGE_KEY, 'false'); } catch {}
     }
   };
 
@@ -47,8 +47,14 @@ export default function SepiaToggle(): JSX.Element {
       className="sepia-toggle navbar__item"
       onClick={toggle}
       aria-pressed={isSepia}
-      aria-label={isSepia ? 'Disable sepia reading mode' : 'Enable sepia reading mode'}
+      aria-label={isSepia ? 'Disable sepia mode' : 'Enable sepia mode'}
       title={isSepia ? 'Sepia mode on — click to disable' : 'Enable sepia reading mode'}
+      style={{
+        // Inline style ensures visibility is not overridden by Docusaurus mobile CSS
+        display: 'flex',
+        visibility: 'visible',
+        opacity: isSepia ? 1 : 0.7,
+      }}
     >
       📖
     </button>

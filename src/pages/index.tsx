@@ -146,7 +146,7 @@ function Hero() {
   return (
     <section className="hero-section">
       <div className="hero-badge">
-        <span>🔴</span> Angular & Frontend Engineering
+        <span>📘</span> The Frontend Handbook
       </div>
       <h1 className="hero-title">
         The handbook that takes you from <br />
@@ -288,8 +288,8 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={siteConfig.title}
-      description="The world's best Angular & Frontend Engineering handbook — covering HTML, CSS, JavaScript, TypeScript, Angular, RxJS, Browser Internals, Performance, System Design, and interview prep."
+      title="The Frontend Handbook"
+      description="The complete Angular & Frontend Engineering handbook — HTML, CSS, JavaScript, TypeScript, Angular, RxJS, Browser Internals, Performance, System Design, and interview prep."
     >
       <main>
         <Hero />

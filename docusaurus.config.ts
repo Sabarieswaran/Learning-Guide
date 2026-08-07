@@ -3,9 +3,10 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Learning Guide',
-  tagline: "The world's best Angular & Frontend Engineering handbook",
-  favicon: 'img/favicon.ico',
+  // Task 5 — rename to The Frontend Handbook
+  title: 'The Frontend Handbook',
+  tagline: 'From Junior Engineer to Principal — the complete Angular & Frontend guide',
+  favicon: 'img/favicon.svg',
 
   url: 'https://sabarieswaran.github.io',
   baseUrl: '/Learning-Guide/',
@@ -64,11 +65,14 @@ const config: Config = {
       },
     },
     navbar: {
-      title: 'Learning Guide',
+      // Task 5 — updated title + TFH logo
+      title: 'The Frontend Handbook',
       logo: {
-        alt: 'Learning Guide Logo',
-        src: 'img/logo.svg',
-        srcDark: 'img/logo-dark.svg',
+        alt: 'TFH — The Frontend Handbook',
+        src: 'img/tfh-logo.svg',
+        srcDark: 'img/tfh-logo-dark.svg',
+        width: 32,
+        height: 32,
       },
       hideOnScroll: false,
       items: [
@@ -121,16 +125,12 @@ const config: Config = {
             { type: 'docSidebar', sidebarId: 'companyGuidesSidebar', label: 'Company Guides' },
           ],
         },
+        // Sepia toggle — stays
         {
           type: 'custom-sepia-toggle',
           position: 'right',
         },
-        {
-          href: 'https://github.com/sabarieswaran/Learning-Guide',
-          position: 'right',
-          className: 'header-github-link',
-          'aria-label': 'GitHub repository',
-        },
+        // Task 4 — GitHub link REMOVED from navbar
       ],
     },
     footer: {
@@ -164,16 +164,16 @@ const config: Config = {
           ],
         },
         {
-          title: 'Interview',
+          title: 'Interview Prep',
           items: [
             { label: 'Company Guides', to: '/docs/company-guides/overview' },
             { label: 'JPMorgan', to: '/docs/company-guides/jpmorgan' },
             { label: 'Microsoft', to: '/docs/company-guides/microsoft' },
-            { label: 'GitHub', href: 'https://github.com/sabarieswaran/Learning-Guide' },
+            // Task 4 — GitHub link REMOVED from footer
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Learning Guide. Built with Docusaurus.`,
+      // Task 1 — copyright removed (field omitted entirely)
     },
     prism: {
       theme: prismThemes.vsLight,
