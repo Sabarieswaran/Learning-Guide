@@ -87,3 +87,10 @@ interface BoardState {
 - **Related:** [Frontend System Design](/docs/frontend-system-design/introduction)
 - **Related:** [Angular Signals](/docs/angular/signals)
 - **Related:** [TypeScript Introduction](/docs/typescript/introduction)
+---
+
+## Related Topics
+
+- **Next:** [Approach Framework](./approach-framework)
+- **Related:** [Frontend System Design](/docs/frontend-system-design/introduction)
+- **Related:** [Angular Signals](/docs/angular/signals)

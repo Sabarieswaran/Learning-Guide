@@ -65,3 +65,11 @@ Start by defining interfaces: `CartItem { productId, name, price, quantity, imag
 
 - **Related:** [Machine Coding Introduction](/docs/machine-coding/introduction)
 - **Related:** [Angular Signals](/docs/angular/signals)
+---
+
+## Related Topics
+
+- **Previous:** [Adobe Guide](./adobe)
+- **Next:** [Oracle Guide](./oracle)
+- **Related:** [Machine Coding Introduction](/docs/machine-coding/introduction)
+- **Related:** [Angular Signals](/docs/angular/signals)

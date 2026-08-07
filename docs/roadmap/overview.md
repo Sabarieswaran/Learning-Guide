@@ -117,3 +117,9 @@ flowchart TD
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 - [web.dev](https://web.dev)
 - [ECMAScript Specification](https://tc39.es/ecma262/)
+---
+
+## Related Topics
+
+- **Next:** [Beginner Path](./beginner-path)
+- **Related:** [HTML Introduction](/docs/html/introduction)

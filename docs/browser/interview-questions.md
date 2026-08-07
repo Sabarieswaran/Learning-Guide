@@ -55,3 +55,10 @@ Security:
   CSRF → Angular sends XSRF token header
   CSP → restrict resource sources via HTTP headers
 ```
+---
+
+## Related Topics
+
+- **Previous:** [Security](./security)
+- **Next:** [Cheat Sheet](./cheat-sheet)
+- **Related:** [JavaScript Event Loop](/docs/javascript/event-loop)

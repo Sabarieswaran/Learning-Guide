@@ -72,3 +72,11 @@ addEventListener('message', ({ data }) => {
 
 - **Related:** [Browser Internals](/docs/browser/introduction)
 - **Related:** [Performance Introduction](/docs/performance/introduction)
+---
+
+## Related Topics
+
+- **Previous:** [Fetch API](./fetch-api)
+- **Next:** [Storage](./storage)
+- **Related:** [Browser Internals](/docs/browser/introduction)
+- **Related:** [Performance Introduction](/docs/performance/introduction)

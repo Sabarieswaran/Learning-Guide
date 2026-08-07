@@ -91,3 +91,10 @@ Topics:
 - [Senior Interview Path](./senior-interview-path)
 - [Angular Introduction](/docs/angular/introduction)
 - [RxJS Introduction](/docs/rxjs/introduction)
+---
+
+## Related Topics
+
+- **Previous:** [Beginner Path](./beginner-path)
+- **Next:** [Senior Interview Path](./senior-interview-path)
+- **Related:** [Angular Introduction](/docs/angular/introduction)

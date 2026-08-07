@@ -108,3 +108,12 @@ type AsyncState<T> =
 type CreateDto<T> = Omit<T, 'id' | 'createdAt'>
 type UpdateDto<T> = Partial<CreateDto<T>>
 ```
+
+
+---
+
+## Related Topics
+
+- **Previous:** [Interview Questions](./interview-questions)
+- **Related:** [TypeScript Introduction](./introduction)
+- **Related:** [Angular Integration](./angular-integration)

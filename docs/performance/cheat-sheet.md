@@ -79,3 +79,9 @@ Field data:      Google Search Console → Core Web Vitals
 ✓ Use will-change: transform on elements that animate
 ✓ @media (prefers-reduced-motion: reduce) { remove animations }
 ```
+---
+
+## Related Topics
+
+- **Previous:** [Interview Questions](./interview-questions)
+- **Related:** [Performance Introduction](./introduction)

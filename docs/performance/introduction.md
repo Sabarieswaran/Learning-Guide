@@ -78,3 +78,10 @@ flowchart TD
 
 - **Related:** [Browser Internals](/docs/browser/introduction)
 - **Related:** [Angular Change Detection](/docs/angular/change-detection)
+---
+
+## Related Topics
+
+- **Next:** [Core Web Vitals](./core-web-vitals)
+- **Related:** [Browser Internals](/docs/browser/introduction)
+- **Related:** [Angular Change Detection](/docs/angular/change-detection)

@@ -76,3 +76,11 @@ For lists with thousands of items, use Angular CDK's `VirtualScrollViewport` wit
 
 - **Related:** [Frontend System Design](/docs/frontend-system-design/introduction)
 - **Related:** [TypeScript Introduction](/docs/typescript/introduction)
+---
+
+## Related Topics
+
+- **Previous:** [JPMorgan Guide](./jpmorgan)
+- **Next:** [Adobe Guide](./adobe)
+- **Related:** [Frontend System Design](/docs/frontend-system-design/introduction)
+- **Related:** [TypeScript Introduction](/docs/typescript/introduction)

@@ -85,3 +85,12 @@ Implement an `HttpInterceptor` that attaches the Authorization header (JWT or se
 - **Related:** [Angular Change Detection](/docs/angular/change-detection)
 - **Related:** [Performance Introduction](/docs/performance/introduction)
 - **Related:** [Senior Interview Path](/docs/roadmap/senior-interview-path)
+---
+
+## Related Topics
+
+- **Previous:** [Company Guides Overview](./overview)
+- **Next:** [Microsoft Guide](./microsoft)
+- **Related:** [Performance Introduction](/docs/performance/introduction)
+- **Related:** [Angular Change Detection](/docs/angular/change-detection)
+- **Related:** [Senior Interview Path](/docs/roadmap/senior-interview-path)

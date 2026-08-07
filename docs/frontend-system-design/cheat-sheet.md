@@ -73,3 +73,9 @@ clicked = output<MouseEvent>();
   Body content
 </lib-card>
 ```
+---
+
+## Related Topics
+
+- **Previous:** [Interview Questions](./interview-questions)
+- **Related:** [System Design Introduction](./introduction)

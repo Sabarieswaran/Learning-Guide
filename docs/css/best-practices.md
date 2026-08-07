@@ -76,3 +76,10 @@ Define all design decisions as CSS custom properties:
 
 - **Related:** [CSS Introduction](./introduction)
 - **Related:** [Angular Components](/docs/angular/components)
+---
+
+## Related Topics
+
+- **Previous:** [Performance](./performance)
+- **Next:** [Interview Questions](./interview-questions)
+- **Related:** [CSS Introduction](./introduction)

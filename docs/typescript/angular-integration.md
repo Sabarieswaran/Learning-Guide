@@ -69,3 +69,10 @@ Install: `@angular/language-service` VS Code extension.
 
 - **Related:** [Angular Introduction](/docs/angular/introduction)
 - **Related:** [TypeScript Introduction](./introduction)
+---
+
+## Related Topics
+
+- **Previous:** [Compiler Options](./compiler-options)
+- **Next:** [Best Practices](./best-practices)
+- **Related:** [Angular Introduction](/docs/angular/introduction)

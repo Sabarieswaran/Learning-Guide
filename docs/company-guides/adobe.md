@@ -65,3 +65,11 @@ Break the file into chunks (5–10MB each), upload sequentially or in parallel u
 
 - **Related:** [Machine Coding Introduction](/docs/machine-coding/introduction)
 - **Related:** [Component Library Design](/docs/frontend-system-design/component-library)
+---
+
+## Related Topics
+
+- **Previous:** [Microsoft Guide](./microsoft)
+- **Next:** [Flipkart Guide](./flipkart)
+- **Related:** [Machine Coding Introduction](/docs/machine-coding/introduction)
+- **Related:** [Frontend System Design](/docs/frontend-system-design/component-library)

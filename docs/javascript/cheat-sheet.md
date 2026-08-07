@@ -138,3 +138,9 @@ user ?? 'Guest'            // nullish coalescing (null/undefined)
 user ||= defaultUser       // assign if falsy
 count ??= 0                // assign if null/undefined
 ```
+---
+
+## Related Topics
+
+- **Previous:** [Interview Questions](./interview-questions)
+- **Related:** [JavaScript Introduction](./introduction)

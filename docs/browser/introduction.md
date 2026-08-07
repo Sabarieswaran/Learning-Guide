@@ -80,3 +80,10 @@ Angular's change detection produces DOM mutations. Those mutations trigger parts
 
 - **Related:** [JavaScript Event Loop](/docs/javascript/event-loop)
 - **Related:** [Performance Introduction](/docs/performance/introduction)
+---
+
+## Related Topics
+
+- **Next:** [Rendering Pipeline](./rendering-pipeline)
+- **Related:** [JavaScript Event Loop](/docs/javascript/event-loop)
+- **Related:** [Performance Introduction](/docs/performance/introduction)

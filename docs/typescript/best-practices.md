@@ -72,3 +72,10 @@ function process(data: Record<string, unknown>): string {
 
 - **Related:** [TypeScript Introduction](./introduction)
 - **Related:** [Angular Best Practices](/docs/angular/best-practices)
+---
+
+## Related Topics
+
+- **Previous:** [Angular Integration](./angular-integration)
+- **Next:** [Interview Questions](./interview-questions)
+- **Related:** [Angular Best Practices](/docs/angular/best-practices)

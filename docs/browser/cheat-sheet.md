@@ -65,3 +65,9 @@ X-Content-Type-Options: nosniff
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Referrer-Policy: strict-origin-when-cross-origin
 ```
+---
+
+## Related Topics
+
+- **Previous:** [Interview Questions](./interview-questions)
+- **Related:** [Browser Introduction](./introduction)

@@ -96,3 +96,9 @@ new Subject<T>()             // no replay, current only
 new BehaviorSubject<T>(init) // holds current, replays to new
 new ReplaySubject<T>(N)      // replay last N emissions
 ```
+---
+
+## Related Topics
+
+- **Previous:** [Interview Questions](./interview-questions)
+- **Related:** [RxJS Introduction](./introduction)

@@ -89,3 +89,10 @@ flowchart LR
 - **Related:** [Machine Coding](/docs/machine-coding/introduction)
 - **Related:** [Angular Introduction](/docs/angular/introduction)
 - **Related:** [Performance Introduction](/docs/performance/introduction)
+---
+
+## Related Topics
+
+- **Next:** [Design Framework](./design-framework)
+- **Related:** [Machine Coding](/docs/machine-coding/introduction)
+- **Related:** [Angular Introduction](/docs/angular/introduction)

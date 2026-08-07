@@ -92,3 +92,10 @@ Angular perf checklist:
   NgOptimizedImage for all <img>
   takeUntilDestroyed for all subscriptions
 ```
+---
+
+## Related Topics
+
+- **Previous:** [Caching](./caching)
+- **Next:** [Cheat Sheet](./cheat-sheet)
+- **Related:** [Core Web Vitals](./core-web-vitals)

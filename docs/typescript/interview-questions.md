@@ -68,3 +68,9 @@ Angular-specific:
   Typed HTTP              → this.http.get<User[]>(url)
   Signal value            → typeof signal extends Signal<infer T> ? T : never
 ```
+---
+
+## Related Topics
+
+- **Previous:** [Best Practices](./best-practices)
+- **Next:** [Cheat Sheet](./cheat-sheet)

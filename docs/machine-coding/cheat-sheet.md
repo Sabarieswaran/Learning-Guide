@@ -140,3 +140,10 @@ Types:        interfaces first, no any
 Accessibility: ARIA + keyboard + focus
 Testing:      stub with signals before integrating service
 ```
+---
+
+## Related Topics
+
+- **Previous:** [Interview Questions](./interview-questions)
+- **Related:** [Machine Coding Introduction](./introduction)
+- **Related:** [Angular Signals](/docs/angular/signals)

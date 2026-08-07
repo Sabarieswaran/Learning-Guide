@@ -100,3 +100,10 @@ Hoisting:           var → undefined; function → fully; let/const → TDZ
 Generator:          function*() { yield value; }
 Async iteration:    for await (const item of asyncIterable) {}
 ```
+---
+
+## Related Topics
+
+- **Previous:** [Best Practices](./best-practices)
+- **Next:** [Cheat Sheet](./cheat-sheet)
+- **Related:** [TypeScript Interview Questions](/docs/typescript/interview-questions)

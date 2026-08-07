@@ -89,3 +89,10 @@ flowchart TD
 - [Company Guides](/docs/company-guides/overview)
 - [Frontend System Design](/docs/frontend-system-design/introduction)
 - [Machine Coding](/docs/machine-coding/introduction)
+---
+
+## Related Topics
+
+- **Previous:** [Angular Professional Path](./angular-professional-path)
+- **Related:** [Company Guides](/docs/company-guides/overview)
+- **Related:** [Frontend System Design](/docs/frontend-system-design/introduction)
