@@ -7,16 +7,17 @@
 /* ═══════════════════════════════════════════════
    LIGHT MODE (default)
    Background: #F5F5F5 | Text: #222222
+   Primary palette: Purple (#7B3F9B scale)
    ═══════════════════════════════════════════════ */
 :root {
-  /* Docusaurus primary — Angular red */
-  --ifm-color-primary: #dd0031;
-  --ifm-color-primary-dark: #c50029;
-  --ifm-color-primary-darker: #ba0027;
-  --ifm-color-primary-darkest: #990020;
-  --ifm-color-primary-light: #f20035;
-  --ifm-color-primary-lighter: #ff0038;
-  --ifm-color-primary-lightest: #ff2b4e;
+  /* Primary — Purple palette from image */
+  --ifm-color-primary: #7B3F9B;
+  --ifm-color-primary-dark: #6E3889;
+  --ifm-color-primary-darker: #673481;
+  --ifm-color-primary-darkest: #542A6A;
+  --ifm-color-primary-light: #8B4FAF;
+  --ifm-color-primary-lighter: #9B5ABD;
+  --ifm-color-primary-lightest: #B47FD0;
 
   /* Reading-optimised light palette */
   --ifm-background-color: #F5F5F5;
@@ -53,13 +54,13 @@
    Avoids halation (pure black bg + pure white text)
    ═══════════════════════════════════════════════ */
 [data-theme='dark'] {
-  --ifm-color-primary: #ff4d6a;
-  --ifm-color-primary-dark: #ff2d50;
-  --ifm-color-primary-darker: #ff1f44;
-  --ifm-color-primary-darkest: #e80030;
-  --ifm-color-primary-light: #ff6d84;
-  --ifm-color-primary-lighter: #ff8095;
-  --ifm-color-primary-lightest: #ffadb9;
+  --ifm-color-primary: #B47FD0;
+  --ifm-color-primary-dark: #A56CC3;
+  --ifm-color-primary-darker: #9B5ABD;
+  --ifm-color-primary-darkest: #8B4FAF;
+  --ifm-color-primary-light: #C494DC;
+  --ifm-color-primary-lighter: #D0A8E4;
+  --ifm-color-primary-lightest: #E0C8EE;
 
   --ifm-background-color: #1E1E1E;
   --ifm-background-surface-color: #2A2A2A;
@@ -188,8 +189,8 @@ body {
 
 .sepia-toggle[aria-pressed='true'] {
   opacity: 1;
-  background: rgba(139, 69, 19, 0.15);
-  color: #8B4513;
+  background: rgba(123, 63, 155, 0.12);
+  color: #7B3F9B;
 }
 
 /* ═══════════════════════════════════════════════
@@ -314,7 +315,7 @@ body {
   inset: 0;
   background: radial-gradient(
     ellipse 80% 50% at 50% -10%,
-    rgba(221, 0, 49, 0.1) 0%,
+    rgba(123, 63, 155, 0.1) 0%,
     transparent 70%
   );
   pointer-events: none;
@@ -332,9 +333,9 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  background: rgba(221, 0, 49, 0.1);
+  background: rgba(123, 63, 155, 0.1);
   color: var(--ifm-color-primary);
-  border: 1px solid rgba(221, 0, 49, 0.25);
+  border: 1px solid rgba(123, 63, 155, 0.25);
   border-radius: 100px;
   padding: 0.3rem 0.85rem;
   font-size: 0.8rem;
@@ -389,7 +390,7 @@ body {
 
 .hero-actions .button--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(221, 0, 49, 0.35);
+  box-shadow: 0 4px 20px rgba(123, 63, 155, 0.3);
   background: var(--ifm-color-primary-dark);
 }
 
@@ -406,7 +407,7 @@ body {
 
 .hero-actions .button--secondary:hover {
   border-color: var(--ifm-color-primary);
-  background: rgba(221, 0, 49, 0.05);
+  background: rgba(123, 63, 155, 0.05);
 }
 
 .hero-stats {
@@ -526,7 +527,7 @@ body {
 
 .feature-card-badge {
   display: inline-block;
-  background: rgba(221, 0, 49, 0.1);
+  background: rgba(123, 63, 155, 0.1);
   color: var(--ifm-color-primary);
   border-radius: 4px;
   padding: 0.15rem 0.5rem;
@@ -576,7 +577,7 @@ body {
   height: 40px;
   min-width: 40px;
   border-radius: 8px;
-  background: rgba(221, 0, 49, 0.1);
+  background: rgba(123, 63, 155, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
