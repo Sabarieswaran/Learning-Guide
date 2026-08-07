@@ -2,7 +2,6 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import clsx from 'clsx';
 
 // ─────────────────────────────────────────────
 // Data
@@ -139,7 +138,7 @@ const learningPaths = [
 ];
 
 // ─────────────────────────────────────────────
-// Component: Hero
+// Hero
 // ─────────────────────────────────────────────
 
 function Hero() {
@@ -148,17 +147,22 @@ function Hero() {
       <div className="hero-badge">
         <span>📘</span> The Frontend Handbook
       </div>
+
       <h1 className="hero-title">
-        The handbook that takes you from <br />
-        <span className="accent">Junior to Principal</span>
+        Your Complete{' '}
+        <span className="accent">Frontend Guide</span>
       </h1>
+
       <p className="hero-subtitle">
-        A structured, interview-focused guide covering every topic a
-        senior frontend engineer needs — with production Angular examples,
-        Mermaid diagrams, and curated interview questions.
+        A collection of guides, examples, interview questions, and best
+        practices for modern frontend engineers.
       </p>
+
       <div className="hero-actions">
-        <Link className="button button--primary button--lg" to="/docs/roadmap/overview">
+        <Link
+          className="button button--primary button--lg"
+          to="/docs/roadmap/overview"
+        >
           Start Learning
         </Link>
         <Link
@@ -168,6 +172,7 @@ function Hero() {
           Angular Guide →
         </Link>
       </div>
+
       <div className="hero-stats">
         <div className="hero-stat">
           <span className="hero-stat-value">13</span>
@@ -191,7 +196,7 @@ function Hero() {
 }
 
 // ─────────────────────────────────────────────
-// Component: Topics Grid
+// Topics
 // ─────────────────────────────────────────────
 
 function TopicsSection() {
@@ -217,7 +222,7 @@ function TopicsSection() {
 }
 
 // ─────────────────────────────────────────────
-// Component: Learning Paths
+// Learning Paths
 // ─────────────────────────────────────────────
 
 function LearningPathsSection() {
@@ -253,7 +258,7 @@ function LearningPathsSection() {
 }
 
 // ─────────────────────────────────────────────
-// Component: Company Guides CTA
+// Company Guides
 // ─────────────────────────────────────────────
 
 function CompanySection() {
@@ -281,7 +286,7 @@ function CompanySection() {
 }
 
 // ─────────────────────────────────────────────
-// Page Root
+// Page
 // ─────────────────────────────────────────────
 
 export default function Home() {
@@ -289,7 +294,7 @@ export default function Home() {
   return (
     <Layout
       title="The Frontend Handbook"
-      description="The complete Angular & Frontend Engineering handbook — HTML, CSS, JavaScript, TypeScript, Angular, RxJS, Browser Internals, Performance, System Design, and interview prep."
+      description="Your complete frontend guide — guides, examples, interview questions, and best practices for modern frontend engineers."
     >
       <main>
         <Hero />
