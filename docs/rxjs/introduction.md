@@ -267,6 +267,18 @@ All four flatten an observable-returning function into the outer stream, but han
 
 ---
 
+## Security Notes
+
+RxJS itself doesn't introduce security vulnerabilities, but common patterns around it do:
+
+- **Unvalidated observable data rendered as HTML** — if an observable emits user-controlled content that's bound to `[innerHTML]`, XSS is possible. Use Angular's `DomSanitizer` or bind to `{{}}` text interpolation instead.
+- **Memory leaks as a DoS vector** — uncleaned subscriptions holding references to DOM, services, or sensitive state can be exploited in long-running sessions. Always unsubscribe with `takeUntilDestroyed()`.
+- **Subject as auth bypass** — if a `BehaviorSubject` holding auth state is accessible outside its service, external code can call `.next(authorizedUser)` to fake authentication. Keep subjects private with `asObservable()` on the public API.
+- **switchMap and TOCTOU** — time-of-check-time-of-use issues can occur if a switchMap cancels a permission check request but the dependent action continues. Always validate permissions server-side.
+- **Logging sensitive data in `tap()`** — `tap(v => console.log(v))` in production code can leak tokens or PII to browser DevTools. Strip debug taps before shipping.
+
+---
+
 ## 30-Second Answer
 
 RxJS models async data as streams. An Observable emits values over time; you subscribe to react to them. Operators like `map`, `filter`, `switchMap`, and `debounceTime` transform streams declaratively. Angular uses RxJS for HTTP, routing, and forms. Always unsubscribe — use `takeUntilDestroyed()` or the `async` pipe.

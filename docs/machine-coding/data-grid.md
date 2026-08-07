@@ -227,6 +227,14 @@ export class DataGridComponent<T extends { id: string }> {
 
 ---
 
+## Exercises
+
+1. Add a multi-sort feature — clicking a second column while holding Shift adds it as a secondary sort key. Display sort priority indicators (1, 2) on sorted column headers.
+2. Implement column visibility toggle — a dropdown lets the user show/hide columns, persisted to `localStorage`.
+3. Replace client-side filtering with server-side pagination — debounce filter/sort/page changes and emit them via an output event for the parent to call an API.
+
+---
+
 ## Accessibility Checklist
 
 - Table semantics: `<table>`, `<thead>`, `<tbody>`, `<th scope="col">` — no `role="table"` needed when using native elements

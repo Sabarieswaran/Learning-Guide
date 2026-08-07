@@ -200,6 +200,14 @@ export class TreeNodeComponent {
 
 ---
 
+## Exercises
+
+1. Add lazy loading — when a folder node is expanded for the first time, simulate an async fetch for its children with a 500ms delay and show a spinner inside the node during loading.
+2. Implement a search/filter function that flattens the tree to show only nodes matching a query string, with their ancestors expanded automatically.
+3. Add drag-and-drop reordering within a parent node using the HTML Drag and Drop API — update the children array in `TreeService` when a node is dropped.
+
+---
+
 ## Accessibility Checklist
 
 - Root list: `role="tree"` with `aria-label="File explorer"`

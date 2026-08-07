@@ -212,6 +212,14 @@ export class BoardComponent {
 
 ---
 
+## Exercises
+
+1. Extend the board to support WIP limits — columns should visually warn when `cardIds.length >= column.limit` and prevent adding more cards with an accessible error message.
+2. Add a card priority filter signal — a computed that returns only cards of a given priority across all columns.
+3. Implement undo/redo by keeping a history stack of `BoardState[]` — `Ctrl+Z` restores the previous snapshot.
+
+---
+
 ## Accessibility Checklist
 
 - Column regions: `role="region"` with `aria-label="Todo column (3 cards)"`
