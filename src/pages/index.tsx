@@ -2,24 +2,7 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-
-// ─────────────────────────────────────────────
-// Tech color map — for left-border accents
-// Topics without a specific brand color use undefined (plain --border)
-// ─────────────────────────────────────────────
-const TECH_COLORS: Record<string, string | undefined> = {
-  HTML:                    'var(--tech-html)',
-  CSS:                     'var(--tech-css)',
-  JavaScript:              'var(--tech-js)',
-  TypeScript:              'var(--tech-ts)',
-  Angular:                 'var(--tech-angular)',
-  RxJS:                    'var(--tech-rxjs)',
-  'Browser Internals':     undefined,
-  Performance:             undefined,
-  'Frontend System Design': undefined,
-  'Machine Coding':        undefined,
-  'Company Guides':        undefined,
-};
+import clsx from 'clsx';
 
 // ─────────────────────────────────────────────
 // Data
@@ -27,99 +10,112 @@ const TECH_COLORS: Record<string, string | undefined> = {
 
 const topics = [
   {
-    icon: '⬜',
+    icon: '🌐',
     title: 'HTML',
-    description: 'Semantic markup, accessibility, forms, Web Components, and browser APIs.',
-    category: 'Foundation',
+    description:
+      'Semantic markup, accessibility, forms, Web Components, and browser APIs. The foundation every frontend engineer must master.',
+    badge: 'Foundation',
     href: '/docs/html/introduction',
   },
   {
-    icon: '⬜',
+    icon: '🎨',
     title: 'CSS',
-    description: 'Flexbox, Grid, custom properties, animations, and responsive design.',
-    category: 'Foundation',
+    description:
+      'Flexbox, Grid, custom properties, animations, and responsive design. Write stylesheets that scale across every viewport.',
+    badge: 'Foundation',
     href: '/docs/css/introduction',
   },
   {
-    icon: '⬜',
+    icon: '⚡',
     title: 'JavaScript',
-    description: 'Closures, the event loop, promises, async/await, and ES2025 internals.',
-    category: 'Foundation',
+    description:
+      'Closures, the event loop, promises, async/await, and ES2025. Deep internals and practical patterns for production code.',
+    badge: 'Foundation',
     href: '/docs/javascript/introduction',
   },
   {
-    icon: '⬜',
+    icon: '🔷',
     title: 'TypeScript',
-    description: 'Generics, mapped types, conditional types, and strict-mode patterns.',
-    category: 'Foundation',
+    description:
+      'Advanced type system, generics, mapped types, conditional types, and strict-mode patterns for enterprise codebases.',
+    badge: 'Foundation',
     href: '/docs/typescript/introduction',
   },
   {
-    icon: '⬜',
+    icon: '🔴',
     title: 'Angular',
-    description: 'Components, signals, routing, reactive forms, DI, and performance.',
-    category: 'Core',
+    description:
+      'Components, signals, routing, reactive forms, dependency injection, and performance patterns used in production apps.',
+    badge: 'Core',
     href: '/docs/angular/introduction',
   },
   {
-    icon: '⬜',
+    icon: '♻️',
     title: 'RxJS',
-    description: 'Observables, subjects, operators, and Angular integration patterns.',
-    category: 'Core',
+    description:
+      'Observables, subjects, operators, and Angular integration patterns. Build reactive data flows with confidence.',
+    badge: 'Core',
     href: '/docs/rxjs/introduction',
   },
   {
-    icon: '⬜',
+    icon: '🧠',
     title: 'Browser Internals',
-    description: 'Rendering pipeline, event loop, memory management, and storage APIs.',
-    category: 'Advanced',
+    description:
+      'Rendering pipeline, event loop, memory management, and storage APIs. Know what happens from URL to pixel.',
+    badge: 'Advanced',
     href: '/docs/browser/introduction',
   },
   {
-    icon: '⬜',
+    icon: '🚀',
     title: 'Performance',
-    description: 'Core Web Vitals, lazy loading, Angular optimization, and Lighthouse patterns.',
-    category: 'Advanced',
+    description:
+      'Core Web Vitals, lazy loading, Angular optimization, and Lighthouse 100 patterns. Build fast by default.',
+    badge: 'Advanced',
     href: '/docs/performance/introduction',
   },
   {
-    icon: '⬜',
+    icon: '🏗️',
     title: 'Frontend System Design',
-    description: 'Dashboards, chat apps, file upload, and component library architecture.',
-    category: 'Senior',
+    description:
+      'Design dashboards, chat systems, and component libraries at scale. Ace the senior-level system design interview.',
+    badge: 'Senior',
     href: '/docs/frontend-system-design/introduction',
   },
   {
-    icon: '⬜',
+    icon: '💻',
     title: 'Machine Coding',
-    description: 'Kanban boards, tree views, and data grids built live in Angular.',
-    category: 'Senior',
+    description:
+      'Kanban boards, tree views, and data grids built from scratch in Angular. Structured approach for live coding rounds.',
+    badge: 'Senior',
     href: '/docs/machine-coding/introduction',
   },
   {
-    icon: '⬜',
+    icon: '🏢',
     title: 'Company Guides',
-    description: 'Interview processes and question banks for JPMorgan, Microsoft, Adobe, Flipkart, Oracle.',
-    category: 'Interview',
+    description:
+      'Interview processes, question banks, and preparation strategies for JPMorgan, Microsoft, Adobe, Flipkart, and Oracle.',
+    badge: 'Interview',
     href: '/docs/company-guides/overview',
   },
 ];
 
 const learningPaths = [
   {
-    label: 'Beginner',
-    title: 'Foundations',
+    icon: '🌱',
+    title: 'Beginner Path',
+    level: 'Beginner',
     steps: [
       'HTML — Semantic structure & accessibility',
       'CSS — Layout, animations & responsive design',
       'JavaScript — Core language & browser APIs',
       'TypeScript — Static types & generics',
-      'Angular — Components & templates',
+      'Angular Basics — Components & templates',
     ],
   },
   {
-    label: 'Intermediate',
+    icon: '⚡',
     title: 'Angular Professional',
+    level: 'Intermediate → Advanced',
     steps: [
       'Angular — Signals, routing & forms',
       'RxJS — Reactive data flows',
@@ -128,132 +124,66 @@ const learningPaths = [
     ],
   },
   {
-    label: 'Senior / Principal',
-    title: 'Interview Ready',
+    icon: '🎯',
+    title: 'Senior Interview',
+    level: 'Senior / Principal',
     steps: [
       'JavaScript Internals — Event loop & closures',
       'Angular Internals — Signals & change detection',
       'Performance — Core Web Vitals',
       'Frontend System Design — Scalable architectures',
       'Machine Coding — Live problem solving',
+      'Company Guides — Targeted interview prep',
     ],
   },
 ];
 
-const companies = [
-  { name: 'JPMorgan', slug: 'jpmorgan' },
-  { name: 'Microsoft', slug: 'microsoft' },
-  { name: 'Adobe', slug: 'adobe' },
-  { name: 'Flipkart', slug: 'flipkart' },
-  { name: 'Oracle', slug: 'oracle' },
-];
-
 // ─────────────────────────────────────────────
-// Hero
+// Component: Hero
 // ─────────────────────────────────────────────
 
 function Hero() {
   return (
     <section className="hero-section">
+      <div className="hero-badge">
+        <span>🔴</span> Angular & Frontend Engineering
+      </div>
       <h1 className="hero-title">
-        <span className="hero-title-line1">From Junior Engineer</span>
-        <span className="hero-title-line2">
-          to{' '}
-          <span className="hero-title-gradient">Principal.</span>
-        </span>
+        The handbook that takes you from <br />
+        <span className="accent">Junior to Principal</span>
       </h1>
-
       <p className="hero-subtitle">
-        A structured, interview-focused handbook covering every topic a senior
-        frontend engineer needs — with production Angular examples, Mermaid
-        diagrams, and curated interview questions.
+        A structured, interview-focused guide covering every topic a
+        senior frontend engineer needs — with production Angular examples,
+        Mermaid diagrams, and curated interview questions.
       </p>
-
-      {/* 3px stack-gradient rule */}
-      <span className="hero-rule" aria-hidden="true" />
-
       <div className="hero-actions">
-        <Link className="hero-cta-primary" to="/docs/roadmap/overview">
+        <Link className="button button--primary button--lg" to="/docs/roadmap/overview">
           Start Learning
         </Link>
-        <Link className="hero-cta-secondary" to="/docs/angular/introduction">
-          Angular guide →
+        <Link
+          className="button button--secondary button--lg"
+          to="/docs/angular/introduction"
+        >
+          Angular Guide →
         </Link>
       </div>
-
-      {/* Stats — plain monospace text row */}
-      <div className="hero-stats" aria-label="Site statistics">
-        <span className="hero-stat-item">13 topics</span>
-        <span className="hero-stat-item">100+ chapters</span>
-        <span className="hero-stat-item">500+ interview questions</span>
-        <span className="hero-stat-item">5 company guides</span>
-      </div>
-    </section>
-  );
-}
-
-// ─────────────────────────────────────────────
-// Topics List
-// ─────────────────────────────────────────────
-
-function TopicsSection() {
-  return (
-    <section className="topics-section">
-      <p className="topics-section-heading">Curriculum</p>
-      <h2 className="topics-section-title">Everything you need</h2>
-
-      <ul className="topics-list" role="list">
-        {topics.map((topic) => {
-          const accentColor = TECH_COLORS[topic.title];
-          return (
-            <li key={topic.title}>
-              <Link
-                className="topic-row"
-                to={topic.href}
-                style={
-                  {
-                    '--row-accent': accentColor ?? 'var(--border)',
-                  } as React.CSSProperties
-                }
-              >
-                <span className="topic-row-body">
-                  <span className="topic-row-title">{topic.title}</span>
-                  <span className="topic-row-desc">{topic.description}</span>
-                </span>
-                <span className="topic-row-category">{topic.category}</span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </section>
-  );
-}
-
-// ─────────────────────────────────────────────
-// Learning Paths
-// ─────────────────────────────────────────────
-
-function LearningPathsSection() {
-  return (
-    <section className="paths-section">
-      <div className="paths-inner">
-        <p className="paths-section-heading">Learning Paths</p>
-        <h2 className="paths-section-title">Choose your starting point</h2>
-        <div className="paths-grid">
-          {learningPaths.map((path) => (
-            <div key={path.title} className="path-card">
-              <p className="path-card-label">{path.label}</p>
-              <p className="path-card-title">{path.title}</p>
-              <ul className="path-steps">
-                {path.steps.map((step) => (
-                  <li key={step} className="path-step">
-                    {step}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <div className="hero-stats">
+        <div className="hero-stat">
+          <span className="hero-stat-value">13</span>
+          <span className="hero-stat-label">Topics</span>
+        </div>
+        <div className="hero-stat">
+          <span className="hero-stat-value">100+</span>
+          <span className="hero-stat-label">Chapters</span>
+        </div>
+        <div className="hero-stat">
+          <span className="hero-stat-value">500+</span>
+          <span className="hero-stat-label">Interview Qs</span>
+        </div>
+        <div className="hero-stat">
+          <span className="hero-stat-value">5</span>
+          <span className="hero-stat-label">Company Guides</span>
         </div>
       </div>
     </section>
@@ -261,33 +191,25 @@ function LearningPathsSection() {
 }
 
 // ─────────────────────────────────────────────
-// Company Guides
+// Component: Topics Grid
 // ─────────────────────────────────────────────
 
-function CompanySection() {
+function TopicsSection() {
   return (
-    <section className="company-section">
-      <p className="company-section-heading">Interview Prep</p>
-      <h2 className="company-section-title">Company-specific guides</h2>
-      <p className="company-section-desc">
-        Tailored preparation covering interview processes, question patterns,
-        and what each company focuses on.
+    <section className="features-section">
+      <h2 className="features-section-title">Everything you need</h2>
+      <p className="features-section-subtitle">
+        From HTML fundamentals to Principal-level system design, every
+        topic is covered with depth, diagrams, and real examples.
       </p>
-      <div className="company-list" role="list">
-        {companies.map((company, i) => (
-          <React.Fragment key={company.slug}>
-            <Link
-              className="company-list-link"
-              to={`/docs/company-guides/${company.slug}`}
-            >
-              {company.name}
-            </Link>
-            {i < companies.length - 1 && (
-              <span className="company-list-sep" aria-hidden="true">
-                /
-              </span>
-            )}
-          </React.Fragment>
+      <div className="features-grid">
+        {topics.map((topic) => (
+          <Link key={topic.title} className="feature-card" to={topic.href}>
+            <span className="feature-card-icon">{topic.icon}</span>
+            <h3 className="feature-card-title">{topic.title}</h3>
+            <p className="feature-card-description">{topic.description}</p>
+            <span className="feature-card-badge">{topic.badge}</span>
+          </Link>
         ))}
       </div>
     </section>
@@ -295,7 +217,71 @@ function CompanySection() {
 }
 
 // ─────────────────────────────────────────────
-// Page
+// Component: Learning Paths
+// ─────────────────────────────────────────────
+
+function LearningPathsSection() {
+  return (
+    <section className="paths-section">
+      <h2 className="features-section-title">Choose your path</h2>
+      <p className="features-section-subtitle">
+        Structured learning paths designed around where you are and where
+        you want to go.
+      </p>
+      <div className="paths-grid">
+        {learningPaths.map((path) => (
+          <div key={path.title} className="path-card">
+            <div className="path-card-header">
+              <div className="path-card-icon">{path.icon}</div>
+              <div>
+                <p className="path-card-title">{path.title}</p>
+                <p className="path-card-level">{path.level}</p>
+              </div>
+            </div>
+            <ul className="path-steps">
+              {path.steps.map((step) => (
+                <li key={step} className="path-step">
+                  {step}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Component: Company Guides CTA
+// ─────────────────────────────────────────────
+
+function CompanySection() {
+  const companies = ['JPMorgan', 'Microsoft', 'Adobe', 'Flipkart', 'Oracle'];
+  return (
+    <section className="interview-section">
+      <h2 className="features-section-title">Company-specific prep</h2>
+      <p className="features-section-subtitle">
+        Tailored guides covering interview processes, patterns, and the
+        exact questions each company focuses on.
+      </p>
+      <div className="interview-badge-list">
+        {companies.map((company) => (
+          <Link
+            key={company}
+            className="interview-badge"
+            to={`/docs/company-guides/${company.toLowerCase()}`}
+          >
+            {company}
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Page Root
 // ─────────────────────────────────────────────
 
 export default function Home() {
@@ -303,7 +289,7 @@ export default function Home() {
   return (
     <Layout
       title={siteConfig.title}
-      description="The world's best Angular & Frontend Engineering handbook — HTML, CSS, JavaScript, TypeScript, Angular, RxJS, Browser Internals, Performance, System Design, and interview prep."
+      description="The world's best Angular & Frontend Engineering handbook — covering HTML, CSS, JavaScript, TypeScript, Angular, RxJS, Browser Internals, Performance, System Design, and interview prep."
     >
       <main>
         <Hero />
