@@ -63,12 +63,8 @@ Create an `AuthGuard` using the `CanActivateFn` functional guard. Inject `AuthSe
 
 ## Related Topics
 
-- **Related:** [Angular Routing](/docs/angular/routing-basics)
-- **Related:** [Senior Interview Path](/docs/roadmap/senior-interview-path)
----
-
-## Related Topics
-
 - **Previous:** [Flipkart Guide](./flipkart)
 - **Related:** [Angular Routing](/docs/angular/routing-basics)
+- **Related:** [Angular Guards](/docs/angular/guards)
+- **Related:** [TypeScript Best Practices](/docs/typescript/best-practices)
 - **Related:** [Senior Interview Path](/docs/roadmap/senior-interview-path)

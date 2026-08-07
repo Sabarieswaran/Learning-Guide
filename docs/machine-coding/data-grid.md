@@ -7,6 +7,32 @@ description: Angular data grid with sorting, filtering, pagination, column resiz
 
 # Build a Data Grid
 
+## 30-Second Answer
+
+A data grid is a **generic computed-signal pipeline**: raw `data` input → filter → sort → paginate, all as `computed()` signals. Sorting state is `{ column, direction }` — both plain signals. Filtering state is `Record<string, string>`. When either changes, `filteredData` recomputes automatically, and `pagedData` derives from that. Reset `pageIndex` to 0 whenever sort or filter changes. Use `role="table"`, `aria-sort` on `<th>`, and `aria-busy` on the table during loading.
+
+---
+
+## Data Flow Architecture
+
+```mermaid
+graph LR
+    A["data input - T array"] --> B["filteredData - computed"]
+    F["filters signal - Record col/str"] --> B
+    S["sort signal - column + direction"] --> B
+    B --> C["pagedData - computed"]
+    P["pageIndex signal"] --> C
+    PS["pageSize signal"] --> C
+    C --> D[Table DOM]
+
+    style A fill:#3178C6,color:#fff
+    style B fill:#7B3F9B,color:#fff
+    style C fill:#DD0031,color:#fff
+    style D fill:#1a1a1a,color:#fff
+```
+
+---
+
 ## Problem Statement
 
 Build a data grid component that:
@@ -198,6 +224,28 @@ export class DataGridComponent<T extends { id: string }> {
 - **Generics** — `DataGridComponent<T>` works with any data shape
 - **Pagination reset** — always reset to page 0 when filters or sort change
 - **Virtual scrolling** — for >10k rows, switch to `CdkVirtualScrollViewport`
+
+---
+
+## Accessibility Checklist
+
+- Table semantics: `<table>`, `<thead>`, `<tbody>`, `<th scope="col">` — no `role="table"` needed when using native elements
+- Sort state: `aria-sort="ascending"` / `"descending"` / `"none"` on `<th>` for sortable columns
+- Loading: `aria-busy="true"` on `<table>` while data loads; announce row count change with `aria-live="polite"`
+- Empty state: put empty message inside a `<td colspan>` — screenreader reads it in table context
+- Filter inputs: each filter `<input>` needs `aria-label="Filter by {column name}"` — placeholder alone is not accessible
+- Pagination: buttons need descriptive labels: "Next page", "Previous page", "Page 3 of 10"
+- Row count: announce "Showing 26–50 of 200 results" in a `<caption>` or `aria-live` region
+- Keyboard: full table navigation with Tab (focusable cells), no mouse-only interactions
+
+---
+
+## Official References
+
+- [MDN — `<table>`: The Table element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table)
+- [ARIA Grid Pattern — W3C APG](https://www.w3.org/WAI/ARIA/apg/patterns/grid/)
+- [Angular CDK — Virtual Scroll](https://material.angular.io/cdk/scrolling/overview)
+- [Angular Signals — angular.dev](https://angular.dev/guide/signals)
 
 ---
 

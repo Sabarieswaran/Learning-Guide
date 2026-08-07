@@ -7,6 +7,31 @@ description: Recursive Angular tree view component — expand/collapse, keyboard
 
 # Build a Tree View
 
+## 30-Second Answer
+
+A tree view is a **recursive component** where `TreeNodeComponent` imports itself to render children. State lives in a `TreeService` with two signals: `expandedIds` (a `Set<string>`) and `selectedId`. Toggle expansion by cloning the set and adding/deleting the ID — Angular detects the new reference and re-renders. Keyboard navigation follows the ARIA tree pattern: `ArrowRight` expands, `ArrowLeft` collapses, `ArrowDown`/`Up` moves focus. Use `role="tree"` on the root `<ul>` and `role="treeitem"` on each `<li>`.
+
+---
+
+## Component Architecture
+
+```mermaid
+graph TD
+    TS["TreeService - expandedIds, selectedId"] --> TC["TreeComponent - root ul role=tree"]
+    TC --> N1["TreeNodeComponent - node A folder"]
+    N1 --> N2["TreeNodeComponent - node A.1 leaf"]
+    N1 --> N3["TreeNodeComponent - node A.2 folder"]
+    N3 --> N4["TreeNodeComponent - node A.2.1 leaf"]
+    TC --> N5["TreeNodeComponent - node B leaf"]
+
+    style TS fill:#7B3F9B,color:#fff
+    style TC fill:#DD0031,color:#fff
+    style N1 fill:#3178C6,color:#fff
+    style N3 fill:#3178C6,color:#fff
+```
+
+---
+
 ## Problem Statement
 
 Build a tree view component that:
@@ -172,6 +197,27 @@ export class TreeNodeComponent {
 - **ARIA tree pattern** — `role="tree"`, `role="treeitem"`, `aria-expanded`, `aria-selected`
 - **Keyboard** — Arrow keys, Enter, Space per ARIA authoring practices
 - **Performance** — CDK virtual scrolling for flat virtual tree if > 1000 nodes
+
+---
+
+## Accessibility Checklist
+
+- Root list: `role="tree"` with `aria-label="File explorer"`
+- Each node: `role="treeitem"`, `aria-expanded="true/false"` on folders (omit on leaves), `aria-selected`
+- Keyboard: `ArrowDown`/`Up` navigates between visible nodes, `ArrowRight` expands/enters, `ArrowLeft` collapses/goes to parent, `Home`/`End` jump to first/last visible
+- Focus management: maintain a single `tabindex="0"` on the currently focused node; all others `tabindex="-1"` (roving tabindex pattern)
+- Selection announcement: `aria-live="polite"` region says "Selected: \{node label\}"
+- Loading state: `aria-busy="true"` on the node while children load lazily
+- Icons: decorative icons get `aria-hidden="true"`; meaningful state icons (e.g., modified file) get `aria-label`
+
+---
+
+## Official References
+
+- [ARIA Tree View Pattern — W3C APG](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/)
+- [MDN — TreeView ARIA example](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tree_role)
+- [Angular CDK — Virtual Scroll](https://material.angular.io/cdk/scrolling/overview)
+- [Angular Signals — angular.dev](https://angular.dev/guide/signals)
 
 ---
 

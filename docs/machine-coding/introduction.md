@@ -82,15 +82,28 @@ interface BoardState {
 
 ---
 
-## Related Topics
+## Architecture Overview
 
-- **Related:** [Frontend System Design](/docs/frontend-system-design/introduction)
-- **Related:** [Angular Signals](/docs/angular/signals)
-- **Related:** [TypeScript Introduction](/docs/typescript/introduction)
+```mermaid
+graph TD
+    A[Machine Coding Interview] --> B[Clarify Requirements]
+    B --> C[Plan Components & State]
+    C --> D[Define TypeScript Types]
+    D --> E[Build Skeleton]
+    E --> F[Implement Core Logic]
+    F --> G[Add Edge Cases & A11y]
+    G --> H[Discuss Trade-offs]
+
+    style A fill:#7B3F9B,color:#fff
+    style D fill:#3178C6,color:#fff
+    style G fill:#DD0031,color:#fff
+```
+
 ---
 
 ## Related Topics
 
-- **Next:** [Approach Framework](./approach-framework)
+- **Next:** [Kanban Board](./kanban-board)
 - **Related:** [Frontend System Design](/docs/frontend-system-design/introduction)
 - **Related:** [Angular Signals](/docs/angular/signals)
+- **Related:** [TypeScript Introduction](/docs/typescript/introduction)

@@ -7,6 +7,32 @@ description: Complete Angular Kanban board implementation — drag and drop, col
 
 # Build a Kanban Board
 
+## 30-Second Answer
+
+A Kanban board is a **signal-driven, normalized state** component tree. Store all columns and cards in `Record<id, entity>` maps for O(1) lookups. Each column is a `BoardColumnComponent` that only renders when its card IDs change (OnPush). Move a card by removing its ID from one column's `cardIds` array and appending it to another — a pure state update with no DOM manipulation. Persist to `localStorage` on every mutation.
+
+---
+
+## Component Architecture
+
+```mermaid
+graph TD
+    BS["BoardService - signal state"] --> BC["BoardComponent - columns list"]
+    BC --> Col1["BoardColumnComponent - column A"]
+    BC --> Col2["BoardColumnComponent - column B"]
+    BC --> Col3["BoardColumnComponent - column C"]
+    Col1 --> Card1[CardComponent]
+    Col1 --> Card2[CardComponent]
+    Col2 --> Card3[CardComponent]
+    Col3 --> AddCardForm[AddCardFormComponent]
+    BC --> AddColForm[AddColumnFormComponent]
+
+    style BS fill:#7B3F9B,color:#fff
+    style BC fill:#DD0031,color:#fff
+```
+
+---
+
 ## Problem Statement
 
 Build a Kanban board with:
@@ -183,6 +209,28 @@ export class BoardComponent {
 - **Immutable updates** — spread operator prevents mutation
 - **LocalStorage persistence** — survives page refresh
 - **Accessibility** — keyboard-navigable cards, ARIA labels on column regions
+
+---
+
+## Accessibility Checklist
+
+- Column regions: `role="region"` with `aria-label="Todo column (3 cards)"`
+- Cards: `role="article"` or `role="listitem"`, focusable via `tabindex="0"`
+- Drag and drop: provide a keyboard alternative — select card with Enter, use arrow keys to move to another column, confirm with Enter
+- Announce moves: use an `aria-live="polite"` region to say "Card X moved to Done column"
+- Priority badge: `aria-label="Priority: high"` — don't rely on color alone
+- Add card button: `aria-label="Add card to Todo"` not just "Add"
+- Empty column: `aria-label="In Progress column, empty"`
+- WIP limit exceeded: `aria-live="assertive"` alert announcing the violation
+
+---
+
+## Official References
+
+- [Angular CDK Drag and Drop](https://material.angular.io/cdk/drag-drop/overview)
+- [ARIA Listbox Pattern — W3C](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/)
+- [MDN — Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
+- [Angular Signals — angular.dev](https://angular.dev/guide/signals)
 
 ---
 
