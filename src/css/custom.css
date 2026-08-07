@@ -230,9 +230,9 @@ body {
   border-radius: 6px;
 }
 
-/* Sepia mode — warm tint on logo */
+/* Sepia mode — show logo as-is, no filter (purple on cream is readable) */
 [data-theme='sepia'] .navbar__logo {
-  filter: sepia(0.3) saturate(0.9);
+  filter: none;
 }
 
 /* GitHub icon — kept for potential future use */
@@ -484,8 +484,23 @@ body {
   padding: 0.8rem 1.75rem;
   font-size: clamp(0.9rem, 2vw, 1rem);
   border-radius: 8px;
-  transition: border-color 150ms ease, background 150ms ease;
+  transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
   min-width: 140px;
+  /* Force readable text in all modes */
+  background: transparent;
+}
+
+/* Dark mode — explicit overrides so text isn't invisible */
+[data-theme='dark'] .hero-actions .button--secondary {
+  color: #E0E0E0;
+  border-color: #4A4A4A;
+  background: transparent;
+}
+
+[data-theme='dark'] .hero-actions .button--secondary:hover {
+  color: #F0F0F0;
+  border-color: var(--ifm-color-primary);
+  background: rgba(180, 127, 208, 0.1);
 }
 
 .hero-actions .button--secondary:hover {
@@ -748,17 +763,60 @@ body {
 }
 
 /* ═══════════════════════════════════════════════
-   FOOTER
+   FOOTER — theme-aware
    ═══════════════════════════════════════════════ */
 .footer {
   border-top: 1px solid var(--ifm-toc-border-color);
+  background-color: var(--ifm-background-surface-color);
 }
 
+/* Override Docusaurus's hardcoded dark footer */
 .footer--dark {
-  background-color: #121212;
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
 }
 
-[data-theme='sepia'] .footer {
+.footer__title {
+  color: var(--ifm-font-color-base);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.footer__link-item {
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.875rem;
+  transition: color 120ms ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Dark mode footer */
+[data-theme='dark'] .footer,
+[data-theme='dark'] .footer--dark {
+  background-color: #121212;
+  border-top-color: #2D2D31;
+}
+
+[data-theme='dark'] .footer__title {
+  color: #E0E0E0;
+}
+
+[data-theme='dark'] .footer__link-item {
+  color: #A0A0A0;
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Sepia mode footer */
+[data-theme='sepia'] .footer,
+[data-theme='sepia'] .footer--dark {
   background-color: #EDE0C4;
   border-top-color: #D4C4A0;
 }
@@ -772,7 +830,7 @@ body {
 }
 
 [data-theme='sepia'] .footer__link-item:hover {
-  color: #3E2723;
+  color: #8B4513;
 }
 
 /* ═══════════════════════════════════════════════
